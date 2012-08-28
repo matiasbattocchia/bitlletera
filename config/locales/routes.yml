@@ -1,21 +1,24 @@
 en:
   routes:
 
-es-AR:
-  bitlletera: 'bitlletera'
-  sign_in: 'entrar'
-  sign_out: 'salir'
-  sign_up: 'registrarse'
-  edit_registration: 'cuenta'
-  user: 'usuario'
-  password: 'contraseña'
-  password_confirmation: 'confirmar contraseña'
-  forgot_pass?: '¿olvidaste tu contraseña?'
-  email: 'correo electrónico'
-  remember_me: 'recordarme'
-  help: 'ayuda'
-  market: 'mercado'
+es:
   routes:
-    users: 'usuarios'
-    sign_in: 'entrar'
-    sign_out: 'salir'
+    new:        crear
+    edit:       editar
+    home:       inicio
+    users:      usuarios
+    sign_in:    entrar
+    sign_out:   salir
+    cancel:     cancelar
+    sign_up:    registrarse
+
+es-AR:
+  routes:
+    new:        crear
+    edit:       editar
+    home:       inicio
+    users:      usuarios
+    sign_in:    entrar
+    sign_out:   salir
+    cancel:     cancelar
+    sign_up:    registrarse
