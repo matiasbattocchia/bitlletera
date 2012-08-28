@@ -1,0 +1,79 @@
+%header
+  .container
+    .row
+      .span8
+        %h1 Bitlletera
+        %p.lead La primera plataforma Bitcoin de Argentina.
+    .row
+      .span8
+        = image_tag 'wallet.png'
+      .span4
+        = form_for  resource,
+                    as: resource_name,
+                    url: registration_path(resource_name),
+                    html: {class: 'basic-form well', id: 'registration_form'} do |f|
+          %legend Registrate
+          = f.label t(:email)
+          = f.email_field :email
+          = f.label t(:password)
+          = f.password_field :password
+          //%span.help-block Mínimo 6 caracteres.
+          = f.label t(:password_confirmation)
+          = f.password_field :password_confirmation
+          = f.button t(:sign_up).capitalize!, class: 'btn btn-primary'
+
+%nav#secondary{'data-spy' => 'affix', 'data-offset-top' => '490'}
+  .container
+    .row
+      .span8
+        %ul.nav.nav-pills
+          %li= link_to 'Compra y venta', '#mercado'
+          %li= link_to 'Billetera electrónica', '#billetera'
+          %li= link_to 'Pagos y transferencias', '#transacciones'
+
+#precontent
+  .container
+    .row
+      .span8
+        %p El <b>Bitcoin</b> es una moneda electrónica descentralizada.
+        %ul
+          %li= link_to 'Sitio oficial', 'https://es.bitcoin.it/wiki/P%C3%A1gina_principal'
+          %li= link_to 'Wikipedia', 'https://es.wikipedia.org/wiki/Bitcoin'
+        %p <b>Bitlletera</b> te permite operar con bitcoins ofreciéndote:
+    .row
+      .span3.offset1
+        .unit
+          %h4 Seguridad
+          = paragraphs(1)
+      .span3
+        .unit
+          %h4 Privacidad
+          = paragraphs(1)
+
+#content
+  .container
+    .row
+      .span8
+        %section#mercado 
+          %h2#first Compra y venta
+          = paragraphs(6)
+
+        %section#billetera
+          %h2 Billetera electrónica
+          = paragraphs(6)
+
+        %section#transacciones
+          %h2 Pagos y transferencias
+          = paragraphs(6)
+
+%footer
+  .container
+    .row
+      .span8
+        // Acerca de nosotros + dirección de contacto
+        %p Bitlletera es una plataforma de Dinero Bit SRL.
+        = paragraphs
+        %ul
+          %li= link_to 'Términos de uso'
+          %li= link_to 'Política de privacidad'
+

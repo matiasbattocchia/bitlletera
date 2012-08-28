@@ -1,0 +1,105 @@
+@import compass
+$bitcoin-yellow: #FDEAAB
+$bitcoin-darkYellow: #E5D39C
+$border-gray: #E3E3E3
+$white-smoke: #F5F5F5
+$hardBlue: #08C
+$white: #FFF
+.centered
+  :display block
+  :margin
+    :left auto
+    :right auto
+
+body
+  nav#primary
+    .nav#exchange
+      a
+        :color $hardBlue
+
+  header
+    :background-color $bitcoin-yellow
+    :padding-top 3em
+    h1, p
+      :text-align center
+      +single-text-shadow($voff: 1px)
+    img
+      @extend .centered
+      :margin
+        :top 3em
+        :bottom 3em
+
+    form
+      :float left
+      :position fixed
+      .btn
+        :display block
+        :margin-top 11px
+        
+  nav#secondary
+    :background-color $bitcoin-yellow
+    :border-bottom 1px solid $bitcoin-darkYellow
+    :padding
+      :top 0.6em
+      :bottom 0.6em
+    :font-size 16px
+    :font-weight 600
+    .nav-pills
+      :text-align center
+    ul
+      :margin-bottom 0
+      li
+        :float none
+        :display inline-block
+        a
+          &:hover
+            :background-color $white
+      li.active
+        a
+          &:hover
+            :background-color $hardBlue
+  
+  #precontent
+    +background-image(linear-gradient($white-smoke, $white-smoke 66%, $white))
+    :text-align justify
+    :padding
+      :top 5em
+      :bottom 5em
+    p, ul
+      :font-size 16px
+      :padding
+        :right 2em
+        :left 2em
+        :top 0.3em
+        :bottom 0.3em
+    p
+      :font-style italic
+    .unit
+      p
+        :padding-left 0
+        :font-style normal
+
+  #content
+    :text-align justify
+    :margin-bottom 5em
+    h2
+      :padding
+        :top 0.8em
+        :bottom 0.4em
+    h2#first
+      :padding-top 0
+      :margin-top 0
+    p
+      :padding
+        :left 2em
+        :right 2em
+
+  footer
+    :text-align justify
+    :background-color $bitcoin-yellow
+    :padding 1em
+    :border-top 1px solid $bitcoin-darkYellow
+
+.affix
+  :top 40px
+  :width 100%
