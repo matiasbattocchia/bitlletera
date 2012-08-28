@@ -89,6 +89,15 @@ group :development, :test do
   gem 'forgery'
 
   #capybara
+
+  # Reemplazo de irb
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'hirb'
+
+  # Pretty printed test output
+  gem 'turn', :require => false
+  gem 'minitest'
 end
 
 gem 'jquery-rails'
