@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  amount: 1.5
+  area: MyString
+  price: 1.5
+  transaction: MyString
+  method: MyString
+
+two:
+  amount: 1.5
+  area: MyString
+  price: 1.5
+  transaction: MyString
+  method: MyString
