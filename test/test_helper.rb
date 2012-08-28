@@ -15,4 +15,9 @@ end
 # Helpers para los controladores
 class ActionController::TestCase
   include Devise::TestHelpers
+
+  # Testeamos cada locale configurado
+  def locales
+    Bitlletera::Application.config.i18n.available_locales
+  end
 end
