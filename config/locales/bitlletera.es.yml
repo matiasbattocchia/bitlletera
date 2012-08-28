@@ -1,4 +1,4 @@
-es-AR:
+es:
   bitlletera: 'bitlletera'
   sign_in: 'entrar'
   sign_out: 'salir'
@@ -12,7 +12,3 @@ es-AR:
   remember_me: 'recordarme'
   help: 'ayuda'
   market: 'mercado'
-  routes:
-    users: 'usuarios'
-    sign_in: 'entrar'
-    sign_out: 'salir'
