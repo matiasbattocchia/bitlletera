@@ -1,0 +1,16 @@
+= link_to 'Bitlletera', root_path, :class => 'brand'
+
+%ul.nav
+  %li= link_to t(:help).capitalize!
+  %li= link_to 'Más...'
+
+%ul.nav.pull-right
+  %li.dropdown
+    %a.dropdown-toggle{'data-toggle' => 'dropdown'}
+      = t(:account).capitalize!
+      %b.caret
+    %ul.dropdown-menu
+      //%li Otras cosas
+      %li= link_to t(:edit_account).capitalize!, edit_user_registration_path
+      //%li.divider
+      %li= link_to t(:sign_out).capitalize!, destroy_user_session_path, method: :delete

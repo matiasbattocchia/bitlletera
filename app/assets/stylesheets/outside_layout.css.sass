@@ -1,10 +1,4 @@
-@import compass
-$bitcoin-yellow: #FDEAAB
-$bitcoin-darkYellow: #E5D39C
-$border-gray: #E3E3E3
-$white-smoke: #F5F5F5
-$hardBlue: #08C
-$white: #FFF
+@import shared
 .centered
   :display block
   :margin
@@ -12,13 +6,13 @@ $white: #FFF
     :right auto
 
 body
-  nav#primary
-    .nav#exchange
+  nav#topbar
+    .nav#exchange-rate
       a
         :color $hardBlue
 
   header
-    :background-color $bitcoin-yellow
+    :background-color $bitcoinYellow
     :padding-top 3em
     h1, p
       :text-align center
@@ -36,9 +30,9 @@ body
         :display block
         :margin-top 11px
         
-  nav#secondary
-    :background-color $bitcoin-yellow
-    :border-bottom 1px solid $bitcoin-darkYellow
+  nav#subtopbar
+    :background-color $bitcoinYellow
+    :border-bottom 1px solid $bitcoinDarkYellow
     :padding
       :top 0.6em
       :bottom 0.6em
@@ -60,7 +54,7 @@ body
             :background-color $hardBlue
   
   #precontent
-    +background-image(linear-gradient($white-smoke, $white-smoke 66%, $white))
+    +background-image(linear-gradient($whiteSmoke, $whiteSmoke 66%, $white))
     :text-align justify
     :padding
       :top 5em
@@ -96,9 +90,9 @@ body
 
   footer
     :text-align justify
-    :background-color $bitcoin-yellow
-    :padding 1em
-    :border-top 1px solid $bitcoin-darkYellow
+    :background-color $bitcoinYellow
+    :padding 2em
+    :border-top 1px solid $bitcoinDarkYellow
 
 .affix
   :top 40px

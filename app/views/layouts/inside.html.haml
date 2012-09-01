@@ -1,0 +1,23 @@
+!!!
+%html
+
+  %head
+    %title Bitlletera
+    = stylesheet_link_tag    "inside"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+%body
+  %nav#topbar.navbar.navbar-fixed-top
+    .navbar-inner
+      .container-fluid
+        = render 'layouts/inside_topbar'
+  .container-fluid
+    .row-fluid
+      .span2
+        %nav#sidebar
+          = render 'layouts/inside_sidebar'
+      .span10
+        = yield :inside
+
+
