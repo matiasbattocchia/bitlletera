@@ -1,3 +1,12 @@
+# Problema Devise-Bootstrap. Aparentemente cuando un enlace
+# que está en una barra de navegación usa el método :delete,
+# se obtiene :get, por lo que hay que configurar Devise para
+# que sign_out vaya con :get y no con :delete (lo usual).
+# https://groups.google.com/forum/?fromgroups=#!topic/twitter-bootstrap-stackoverflow/Paz2NZqj7Is
+# config/initializers/devise.rb:
+# config.sign_out_via = :get
+
+
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.7'
@@ -56,7 +65,11 @@ gem 'rolify'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# SQLite
 gem 'sqlite3'
+
+# Bitcoind JSON-API wrap
+gem 'bitcoin-client'
 
 # Gems used only for assets and not required
 # in production environments by default.
