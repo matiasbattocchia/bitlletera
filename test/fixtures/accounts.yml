@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  balance: 1
+  currency: MyString
+  user: 
+
+two:
+  balance: 1
+  currency: MyString
+  user: 

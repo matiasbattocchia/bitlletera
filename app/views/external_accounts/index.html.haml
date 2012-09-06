@@ -1,0 +1,27 @@
+%h1 Listing external_accounts
+
+%table
+  %tr
+    %th Bank
+    %th Number
+    %th Unique code
+    %th Currency
+    %th User
+    %th
+    %th
+    %th
+
+  - @external_accounts.each do |external_account|
+    %tr
+      %td= external_account.bank
+      %td= external_account.number
+      %td= external_account.unique_code
+      %td= external_account.currency
+      %td= external_account.user
+      %td= link_to 'Show', external_account
+      %td= link_to 'Edit', edit_external_account_path(external_account)
+      %td= link_to 'Destroy', external_account, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New External account', new_external_account_path

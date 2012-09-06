@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  bank: MyString
+  number: 1
+  unique_code: 1
+  currency: MyString
+  user: 
+
+two:
+  bank: MyString
+  number: 1
+  unique_code: 1
+  currency: MyString
+  user: 

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sender_account: 
+  receiver_account: 
+  amount: 1
+  status: MyString
+
+two:
+  sender_account: 
+  receiver_account: 
+  amount: 1
+  status: MyString

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Bank:
+  = @external_account.bank
+%p
+  %b Number:
+  = @external_account.number
+%p
+  %b Unique code:
+  = @external_account.unique_code
+%p
+  %b Currency:
+  = @external_account.currency
+%p
+  %b User:
+  = @external_account.user
+
+= link_to 'Edit', edit_external_account_path(@external_account)
+\|
+= link_to 'Back', external_accounts_path

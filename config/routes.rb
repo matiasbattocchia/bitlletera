@@ -1,9 +1,15 @@
 Bitlletera::Application.routes.draw do
+  resources :external_accounts
+
+  resources :transactions
+
+  resources :accounts
+
   get "home/index"
 
   devise_for :users
 
-  resources :ads
+  resources :accounts, :external_accounts, :transactions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

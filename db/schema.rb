@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120828081101) do
+ActiveRecord::Schema.define(:version => 20120906093501) do
+
+  create_table "accounts", :force => true do |t|
+    t.integer  "balance"
+    t.string   "currency"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"
 
   create_table "ads", :force => true do |t|
     t.decimal  "amount"
@@ -24,6 +34,21 @@ ActiveRecord::Schema.define(:version => 20120828081101) do
     t.datetime "updated_at",                                                   :null => false
   end
 
+  create_table "external_accounts", :force => true do |t|
+    t.string   "bank"
+    t.integer  "number"
+    t.integer  "unique_code"
+    t.string   "currency"
+    t.string   "status"
+    t.integer  "user_id"
+    t.integer  "examined_by_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "external_accounts", ["examined_by_id"], :name => "index_external_accounts_on_examined_by_id"
+  add_index "external_accounts", ["user_id"], :name => "index_external_accounts_on_user_id"
+
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -34,6 +59,22 @@ ActiveRecord::Schema.define(:version => 20120828081101) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "sender_account_id"
+    t.string   "sender_account_type"
+    t.integer  "receiver_account_id"
+    t.string   "receiver_account_type"
+    t.integer  "examined_by_id"
+    t.integer  "amount"
+    t.string   "status"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "transactions", ["examined_by_id"], :name => "index_transactions_on_examined_by_id"
+  add_index "transactions", ["receiver_account_id"], :name => "index_transactions_on_receiver_account_id"
+  add_index "transactions", ["sender_account_id"], :name => "index_transactions_on_sender_account_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
