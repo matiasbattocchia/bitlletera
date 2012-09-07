@@ -1,14 +1,17 @@
 %ul.nav.nav-list#sidebar
-  %li= link_to 'Cuentas'
-  %li.nav-header Acciones
+  %li= link_to 'Panel', root_path, class: 'muted'
+  %li.nav-header Cuentas
+  %li= link_to 'Internas', accounts_path
+  %li= link_to 'Externas', external_accounts_path
+  %li.nav-header Transacciones
   %li= link_to 'Depositar'
   %li= link_to 'Extraer'
   %li= link_to 'Transferir'
   %li.nav-header Mercado
-  %li= link_to 'Comprar'
-  %li= link_to 'Vender'
+  %li= link_to 'Comprar', root_path, class: 'muted'
+  %li= link_to 'Vender', root_path, class: 'muted'
   %li.nav-header Comunidad
-  %li= link_to 'Ofrecer'
-  %li= link_to 'Explorar'
+  %li= link_to 'Ofrecer', root_path, class: 'muted'
+  %li= link_to 'Explorar', root_path, class: 'muted'
   %li.nav-header Agenda
-  %li= link_to 'Contactos'
+  %li= link_to 'Contactos', root_path, class: 'muted'

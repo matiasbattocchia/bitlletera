@@ -11,6 +11,7 @@ es:
     sign_out:   salir
     cancel:     cancelar
     sign_up:    registrarse
+    external_accounts: cuentas_externas
 
 es-AR:
   routes:
@@ -22,3 +23,4 @@ es-AR:
     sign_out:   salir
     cancel:     cancelar
     sign_up:    registrarse
+    external_accounts: cuentas_externas

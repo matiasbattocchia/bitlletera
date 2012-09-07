@@ -1,5 +1,27 @@
-%h1 New external_account
+%h1 Crear cuenta externa
 
-= render 'form'
+= form_for @external_account do |f|
+  -if @external_account.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@external_account.errors.count, "error")} prohibited this external_account from being saved:"
+      %ul
+        - @external_account.errors.full_messages.each do |msg|
+          %li= msg
 
-= link_to 'Back', external_accounts_path
+  .field
+    = f.label t(:bank)
+    = f.text_field :bank
+  .field
+    = f.label t(:account_number)
+    = f.text_field :number
+    %span.help-block 12 dígitos.
+  .field
+    = f.label :unique_code, t(:account_unique_code).upcase
+    = f.text_field :unique_code
+    %span.help-block 22 dígitos.
+  .field
+    = f.label t(:currency)
+    = f.select :currency, options_for_select([['Pesos', 'ARS'], ['Dólares', 'USD']], selected: 'ARS')
+  .actions
+    = f.button t(:create).capitalize!, class: 'btn btn-primary'
+    = f.button t(:back).capitalize!, class: 'btn'

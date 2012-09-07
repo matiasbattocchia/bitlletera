@@ -1,27 +1,28 @@
-%h1 Listing external_accounts
+%h1 Cuentas externas
 
-%table
-  %tr
-    %th Bank
-    %th Number
-    %th Unique code
-    %th Currency
-    %th User
-    %th
-    %th
-    %th
+%p Para operar con moneda corriente en Bitlletera necesitás previamente haber declarado una cuenta bancaria.
+%p Tenés que ser el titular de la cuenta. No podés usar cuentas que no están a tu nombre, aunque sean de un familiar directo.
+%p La información aportada será verificada por nosotros. La cuenta agregada quedará pendiente hasta que la aprobemos.
 
-  - @external_accounts.each do |external_account|
+= link_to t(:add_account).capitalize!, new_external_account_path, class: 'btn btn-primary'
+
+%table.table.table-hover
+  %thead
     %tr
-      %td= external_account.bank
-      %td= external_account.number
-      %td= external_account.unique_code
-      %td= external_account.currency
-      %td= external_account.user
-      %td= link_to 'Show', external_account
-      %td= link_to 'Edit', edit_external_account_path(external_account)
-      %td= link_to 'Destroy', external_account, :confirm => 'Are you sure?', :method => :delete
+      %th= t(:bank).capitalize!
+      %th= t(:account_number).capitalize!
+      %th= t(:currency).capitalize!
+      %th= t(:status).capitalize!
+      %th
+  
+  %tbody
+    - @external_accounts.each do |external_account|
+      %tr{'class' => ('error' if external_account.status == 'pending')}
+        %td= external_account.bank
+        %td= external_account.number
+        %td= external_account.currency
+        %td= t(external_account.status.to_s).capitalize!
+        %td= link_to t(:details).capitalize!, external_account
 
 %br
 
-= link_to 'New External account', new_external_account_path

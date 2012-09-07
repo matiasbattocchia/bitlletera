@@ -1,15 +1,8 @@
-%p#notice= notice
-
 %p
-  %b Balance:
+  %b= t(:balance).capitalize! + ':'
   = @account.balance
 %p
-  %b Currency:
+  %b= t(:currency).capitalize! + ':'
   = @account.currency
-%p
-  %b User:
-  = @account.user
 
-= link_to 'Edit', edit_account_path(@account)
-\|
-= link_to 'Back', accounts_path
+= link_to t(:back).capitalize!, accounts_path, class: 'btn'

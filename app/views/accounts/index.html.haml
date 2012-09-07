@@ -1,23 +1,17 @@
-%h1 Listing accounts
+%h1 Cuentas internas
 
-%table
-  %tr
-    %th Balance
-    %th Currency
-    %th User
-    %th
-    %th
-    %th
-
-  - @accounts.each do |account|
+%table.table.table-hover
+  %thead
     %tr
-      %td= account.balance
-      %td= account.currency
-      %td= account.user
-      %td= link_to 'Show', account
-      %td= link_to 'Edit', edit_account_path(account)
-      %td= link_to 'Destroy', account, :confirm => 'Are you sure?', :method => :delete
+      %th= t(:currency).capitalize!
+      %th= t(:balance).capitalize!
+      %th
+
+  %tbody
+    - @accounts.each do |account|
+      %tr
+        %td= account.currency
+        %td= account.balance
+        %td= link_to t(:transactions_history).capitalize!, account
 
 %br
-
-= link_to 'New Account', new_account_path

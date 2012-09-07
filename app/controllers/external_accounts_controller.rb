@@ -2,7 +2,7 @@ class ExternalAccountsController < ApplicationController
   # GET /external_accounts
   # GET /external_accounts.json
   def index
-    @external_accounts = ExternalAccount.all
+    @external_accounts = current_user.external_accounts
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,7 +40,7 @@ class ExternalAccountsController < ApplicationController
   # POST /external_accounts
   # POST /external_accounts.json
   def create
-    @external_account = ExternalAccount.new(params[:external_account])
+    @external_account = current_user.external_accounts.build(params[:external_account])
 
     respond_to do |format|
       if @external_account.save

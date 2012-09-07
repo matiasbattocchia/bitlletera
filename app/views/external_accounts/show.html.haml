@@ -1,21 +1,18 @@
-%p#notice= notice
-
 %p
-  %b Bank:
+  %b= t(:bank).capitalize! + ':'
   = @external_account.bank
 %p
-  %b Number:
+  %b= t(:account_number).capitalize! + ':'
   = @external_account.number
 %p
-  %b Unique code:
+  %b= t(:account_unique_code).upcase + ':'
   = @external_account.unique_code
 %p
-  %b Currency:
+  %b= t(:currency).capitalize! + ':'
   = @external_account.currency
 %p
-  %b User:
-  = @external_account.user
+  %b= t(:status).capitalize! + ':'
+  = t(@external_account.status.to_s).capitalize!
 
-= link_to 'Edit', edit_external_account_path(@external_account)
-\|
-= link_to 'Back', external_accounts_path
+= link_to t(:back).capitalize!, external_accounts_path, class: 'btn'
+= link_to t(:delete).capitalize!, @external_account, confirm: :sure?, method: :delete, class: 'btn btn-danger'
