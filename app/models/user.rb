@@ -10,11 +10,30 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  after_create :crear_cuentas
+
   has_many :ads, dependent: :destroy
   has_many :accounts
   has_many :external_accounts
 
-  # Reserved for administrators.
-  has_many :examined_transactions, class_name: 'Transaction', foreign_key: :examined_by_id
-  has_many :examined_external_accounts, class_name: 'ExternalAccount', foreign_key: :examined_by_id
+  def ars
+    accounts.where(currency: 'ARS').first
+  end
+
+  def usd
+    accounts.where(currency: 'USD').first
+  end
+
+  def btc
+    accounts.where(currency: 'BTC').first
+  end
+
+  private
+
+    def crear_cuentas
+      accounts.create currency: 'ARS'
+      accounts.create currency: 'BTC'
+      accounts.create currency: 'USD'
+    end
+
 end
