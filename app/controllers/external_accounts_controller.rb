@@ -40,15 +40,23 @@ class ExternalAccountsController < ApplicationController
   # POST /external_accounts
   # POST /external_accounts.json
   def create
-    @external_account = current_user.external_accounts.build(params[:external_account])
 
-    respond_to do |format|
-      if @external_account.save
-        format.html { redirect_to @external_account, notice: 'External account was successfully created.' }
-        format.json { render json: @external_account, status: :created, location: @external_account }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @external_account.errors, status: :unprocessable_entity }
+    if params[:create]
+      @external_account = current_user.external_accounts.build(params[:external_account])
+
+      respond_to do |format|
+        if @external_account.save
+          format.html { redirect_to @external_account, notice: 'External account was successfully created.' }
+          format.json { render json: @external_account, status: :created, location: @external_account }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @external_account.errors, status: :unprocessable_entity }
+        end
+      end
+    elsif params[:back]
+      respond_to do |format|
+        format.html { redirect_to external_accounts_url }
+        format.json { head :no_content }
       end
     end
   end

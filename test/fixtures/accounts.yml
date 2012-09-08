@@ -1,11 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  balance: 1
-  currency: MyString
-  user: 
+  balance: 1000
+  currency: ARS
+  user: 1
 
 two:
-  balance: 1
-  currency: MyString
-  user: 
+  balance: 1000
+  currency: ARS
+  user: 2
+
+three:
+  balance: 1000
+  currency: UDS
+  user: 3

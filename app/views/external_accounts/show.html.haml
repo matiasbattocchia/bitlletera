@@ -15,4 +15,4 @@
   = t(@external_account.status.to_s).capitalize!
 
 = link_to t(:back).capitalize!, external_accounts_path, class: 'btn'
-= link_to t(:delete).capitalize!, @external_account, confirm: :sure?, method: :delete, class: 'btn btn-danger'
+= link_to t(:delete).capitalize!, @external_account, confirm: I18n.t(:sure?), method: :delete, class: 'btn btn-danger'
