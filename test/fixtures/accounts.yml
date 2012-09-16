@@ -1,16 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  balance: 1000
+pesos:
+  balance: 100
   currency: ARS
+  status: active
   user: 1
 
-two:
-  balance: 1000
+dollars:
+  balance: 100
+  currency: USD
+  status: active
+  user: 1
+
+bitcoins:
+  balance: 100
+  currency: BTC
+  status: active
+  user: 1
+
+pesos_zero:
+  balance: 0
   currency: ARS
+  status: active
   user: 2
 
-three:
-  balance: 1000
-  currency: UDS
+pesos_hundred:
+  balance: 100
+  currency: ARS
+  status: active
   user: 3
+
+pesos_inactive:
+  balance: 100
+  currency: ARS
+  status: not active
+  user: 4
+

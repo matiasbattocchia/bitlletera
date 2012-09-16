@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120906093501) do
+ActiveRecord::Schema.define(:version => 20120916023958) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "balance"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20120906093501) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "status"
   end
 
   add_index "accounts", ["user_id"], :name => "index_accounts_on_user_id"
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20120906093501) do
     t.integer  "examined_by_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "balance"
   end
 
   add_index "external_accounts", ["examined_by_id"], :name => "index_external_accounts_on_examined_by_id"

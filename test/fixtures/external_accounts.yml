@@ -1,15 +1,37 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  bank: MyString
+pesos_nacion:
+  bank: Nación
   number: 1
   unique_code: 1
-  currency: MyString
-  user: 
+  balance: 0
+  currency: ARS
+  status: active
+  user: 1
 
-two:
-  bank: MyString
-  number: 1
-  unique_code: 1
-  currency: MyString
-  user: 
+pesos_frances:
+  bank: BBVA Francés
+  number: 2
+  unique_code: 2
+  balance: 0
+  currency: ARS
+  status: active
+  user: 2
+
+pesos_inactive:
+  bank: BBVA Francés
+  number: 3
+  unique_code: 3
+  balance: 0
+  currency: ARS
+  status: not active
+  user: 3
+
+pesos_zero:
+  bank: BBVA Francés
+  number: 4
+  unique_code: 4
+  balance: 0
+  currency: ARS
+  status: active
+  user: 4
