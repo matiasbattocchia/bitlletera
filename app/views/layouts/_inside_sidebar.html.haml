@@ -4,9 +4,9 @@
   %li= link_to 'Internas', accounts_path
   %li= link_to 'Externas', external_accounts_path
   %li.nav-header Transacciones
-  %li= link_to 'Depositar'
-  %li= link_to 'Extraer'
-  %li= link_to 'Transferir'
+  %li= link_to 'Depositar', deposits_path
+  %li= link_to 'Extraer', withdraws_path
+  %li= link_to 'Transferir', root_path, class: 'muted'
   %li.nav-header Mercado
   %li= link_to 'Comprar', root_path, class: 'muted'
   %li= link_to 'Vender', root_path, class: 'muted'

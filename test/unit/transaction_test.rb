@@ -80,12 +80,14 @@ class TransactionTest < ActiveSupport::TestCase
 
   # TODO: La verdad que este test podría estar mejor, como intentar cambiar
   # el estado final por otro y atrapar la excepción.
-  test 'el estado final de una transacción es "aceptada" o "rechazada"' do
+  test '"aceptada" es un estado final de una transacción' do
     t = Transaction.between(accounts(:pesos_hundred), accounts(:pesos_zero), 100)
     t.accept!
     assert t.status == 'accepted'
-    
-    t = Transaction.between(accounts(:pesos_hundred), accounts(:pesos_zero), 1000)
+  end
+  
+  test '"rechazada" es un estado final de una transacción' do
+    t = Transaction.between(accounts(:pesos_hundred), accounts(:pesos_zero), 100)
     t.reject!
     assert t.status == 'rejected'
   end

@@ -1,0 +1,29 @@
+%h1 Depósitos
+%p 
+  Depositá para acreditar fondos de una cuenta externa previamente
+  registrada a una cuenta interna para poder operar con ellos en el
+  sitio.
+= link_to t(:add_deposit).capitalize!, new_deposit_path, class: 'btn btn-primary'
+%br
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th= t(:date_word).capitalize!
+      %th= t(:funds_origin).capitalize!
+      %th= t(:funds_destiny).capitalize!
+      %th= t(:currency).capitalize!
+      %th= t(:amount).capitalize!
+      %th
+  
+  %tbody
+    - @deposits.each do |deposit|
+      %tr{'class' => ('error' if deposit.status == 'pending')}
+        %td= l(deposit.created_at, format: :short)
+        %td= deposit.sender_account.description
+        %td= deposit.receiver_account.description
+        %td= deposit.sender_account.currency
+        %td= deposit.amount
+        %td= link_to t(:details).capitalize!, deposit
+
+%br

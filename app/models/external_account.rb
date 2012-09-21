@@ -11,7 +11,8 @@ class ExternalAccount < ActiveRecord::Base
   
   belongs_to :examined_by, class_name: 'User'
 
-  attr_accessible :bank, :number, :unique_code, :balance, :currency, :status
+  attr_accessible :bank, :number, :unique_code,
+                  :balance, :currency, :status
 
   after_initialize :set_default_values, on: :create
   
@@ -27,10 +28,19 @@ class ExternalAccount < ActiveRecord::Base
   def withdraw amount
     self[:balance] += amount
   end
+  
+  def description_with_currency
+    "#{bank} (#{currency})"
+  end
+
+  def description
+    "#{bank}"
+  end
     
   private
     
   def set_default_values
     self[:balance] ||= 0
+    self[:status] ||= 'pending'
   end
 end

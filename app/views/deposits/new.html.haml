@@ -1,0 +1,22 @@
+%h1 Nuevo depósito
+
+= form_for @deposit, url: deposits_path do |f|
+  .field
+    = f.label t(:funds_origin)
+    = f.collection_select :sender_account_id,
+                          @external_accounts,
+                          :id, :description_with_currency
+  .field
+    = f.label t(:funds_destiny)
+    = f.collection_select :receiver_account_id,
+                          @accounts,
+                          :id, :description_with_currency
+  .field
+    = f.label t(:amount)
+    .input-prepend
+      %span.add-on $
+      = f.text_field :amount, class: 'span3'
+  %br/
+  .actions
+    = f.button t(:create).capitalize!, name: 'create', class: 'btn btn-primary'
+    = f.button t(:back).capitalize!, name: 'back', class: 'btn'

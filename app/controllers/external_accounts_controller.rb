@@ -49,7 +49,7 @@ class ExternalAccountsController < ApplicationController
           format.html { redirect_to @external_account, notice: 'External account was successfully created.' }
           format.json { render json: @external_account, status: :created, location: @external_account }
         else
-          format.html { render action: "new" }
+          format.html { render action: 'new' }
           format.json { render json: @external_account.errors, status: :unprocessable_entity }
         end
       end

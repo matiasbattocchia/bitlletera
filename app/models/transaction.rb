@@ -3,9 +3,8 @@ class Transaction < ActiveRecord::Base
   belongs_to :receiver_account, polymorphic: true
   belongs_to :examined_by, class_name: 'User'
 
-  attr_accessible :sender_account, :receiver_account, :amount, :status
-
-  after_initialize :set_default_values, on: :create
+  attr_accessible :amount, :sender_account_id, :receiver_account_id,
+                  :sender_account, :receiver_account
 
   validates :amount, :numericality => {greater_than: 0}
 
@@ -19,10 +18,14 @@ class Transaction < ActiveRecord::Base
             :external_accounts_exclusion,
             on: :create
             
-  around_create :withdraw_funds_from_sender_account
+  before_create :withdraw_funds_from_sender_account
   
   def self.between sender_account, receiver_account, amount
-    create sender_account: sender_account, receiver_account: receiver_account, amount: amount
+    transaction = new amount: amount
+    transaction.sender_account = sender_account
+    transaction.receiver_account = receiver_account
+    transaction.save
+    return transaction
   end
 
   def accept!
@@ -48,10 +51,6 @@ class Transaction < ActiveRecord::Base
   end
   
   private
-  
-  def set_default_values
-    self[:status] ||= 'pending'
-  end
 
   def accounts_currency_sameness
     errors.add(:accounts, 'accounts must hold the same currency') unless sender_account.currency == receiver_account.currency
@@ -76,11 +75,15 @@ class Transaction < ActiveRecord::Base
   def sender_account_funds_sufficiency
     if sender_account.is_a? Account
       errors.add(:accounts, 'sender account has insufficient funds') if amount > sender_account.balance
+    elsif sender_account.is_a? ExternalAccount
+      return true
     end
   end
 
   def withdraw_funds_from_sender_account
     sender_account.withdraw amount
+    sender_account.save!
+    self[:status] = 'pending'
   end
 
 end

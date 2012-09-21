@@ -12,6 +12,8 @@ es:
     cancel:     cancelar
     sign_up:    registrarse
     external_accounts: cuentas_externas
+    deposits:   depositos
+    withdraws:  extracciones
 
 es-AR:
   routes:
@@ -24,3 +26,5 @@ es-AR:
     cancel:     cancelar
     sign_up:    registrarse
     external_accounts: cuentas_externas
+    deposits:   depositos
+    withdraws:  extracciones

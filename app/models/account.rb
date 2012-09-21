@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class Account < ActiveRecord::Base
   has_many  :incoming_transactions,
             as: :receiver_account,
@@ -23,12 +24,21 @@ class Account < ActiveRecord::Base
   end
 
   def withdraw amount
-    self[:balance] += amount
+    self[:balance] -= amount
+  end
+
+  def description_with_currency
+    "Interna (#{currency})"
+  end
+  
+  def description
+    "Interna"
   end
 
   private
   
   def set_default_values
     self[:balance] ||= 0
+    self[:status] ||= 'active'
   end
 end
